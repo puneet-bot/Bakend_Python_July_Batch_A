@@ -1,14 +1,12 @@
 const express           = require('express');
 const app               = express();
-const router            =   express.Router();
+const router            = express.Router();
+const homeController    = require('../controller/index.js');
+const createController  = require('../controller/create');
 
 console.log('here in the router');
-router.get('/',function(req,res){
-    res.send('<h1>Hello from routes</h1>');
-})
+router.get('/',homeController.home);
 
-router.get('/sample',(request,response)=>{
-    response.send('here in the sample file');
-})
+router.get('/create',createController.create);
 
 module.exports=router;
