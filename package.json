@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/puneet-bot/Bakend_Python_July_Batch_A#readme",
   "dependencies": {
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "nodemon": "^2.0.21"
   }
