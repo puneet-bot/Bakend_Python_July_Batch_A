@@ -1,3 +1,5 @@
 module.exports.create=(request,response)=>{
-    response.send('here in the sample file');
+    return response.render('create',{
+        title:"Google | Create Contact"
+    })
 }
