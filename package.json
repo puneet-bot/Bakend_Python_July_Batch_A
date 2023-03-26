@@ -1,5 +1,5 @@
 {
-  "name": "google-contacts",
+  "name": "contacts",
   "version": "1.0.0",
   "description": "A web Application to display all the contacts",
   "main": "app.js",

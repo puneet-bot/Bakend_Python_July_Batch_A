@@ -9,4 +9,11 @@ router.get('/',homeController.home);
 
 router.get('/create',createController.create);
 
+router.get('/google',function(req,res)
+{
+    return res.render('google',{title:"google page"});
+}
+
+);
 module.exports=router;
+
