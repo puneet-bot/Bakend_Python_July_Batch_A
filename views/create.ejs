@@ -1,4 +1,35 @@
-<%- include('header') -%>
-    <h1>Create a Contact Here</h1>
+
+    <%- include('header') -%>
+    <h1>Create a Contact Here</h1><br>
+    <center>
+      <form class="row g-3 border-0 w-50">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+            </div>
+          </div>
+        <div class="col-md-6">
+          <input type="email" class="form-control" id="inputEmail4" placeholder="email">
+        </div>
+        <div class="col-12">
+
+          <input type="text" class="form-control" id="inputCompany" placeholder="Company-name"></div>
+        <div class="col-12">
+        
+          <input type="text" class="form-control" id="inputJobtitle" placeholder="job-title">
+        </div>
+        <div class="col-12">
+          <input type="number" class="form-control" id="contact-number" placeholder="contact-number">
+        </div>
+        <div class="col-12">
+        <input type="text" class="form-control mt-b"  id="label" placeholder="label"></div>
+        <div class="container row">
+            <button type="submit" class="w-25 m-2 border-0">Save</button>
+            <button type="cancel" class="w-25 m-2 border-0 ml-4">Cancel</button>
+        </div>
+      </form>
+    </center>
 
 <%- include('footer') -%>
