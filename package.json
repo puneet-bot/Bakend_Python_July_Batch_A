@@ -1,0 +1,26 @@
+{
+  "name": "google-contacts",
+  "version": "1.0.0",
+  "description": "A web Application to display all the contacts",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puneet-bot/Bakend_Python_July_Batch_A.git"
+  },
+  "author": "Puneet A",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/puneet-bot/Bakend_Python_July_Batch_A/issues"
+  },
+  "homepage": "https://github.com/puneet-bot/Bakend_Python_July_Batch_A#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.21"
+  }
+}
