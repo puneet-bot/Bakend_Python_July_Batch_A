@@ -1,16 +1,16 @@
 <div class="container">
     <h1>Create Contact</h1>
-    <form class="row g-3 needs-validation" novalidate>
+    <form action="/create/contact" method="Post" class="row g-3 needs-validation" novalidate>
         <div class="col-md-6">
-            <label for="validationCustom01" class="form-label">First name*</label>
-            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+            <label for="validationCustom01" class="form-label" >First name*</label>
+            <input type="text" class="form-control" name="first_name" id="validationCustom01" value="Mark" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
         </div>
         <div class="col-md-6">
             <label for="validationCustom02" class="form-label">Last name*</label>
-            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+            <input type="text" class="form-control" name="last_name" id="validationCustom02" value="Otto" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -19,7 +19,7 @@
             <label for="validationCustomUsername" class="form-label">Email*</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="email" class="form-control" id="validationCustomUsername"
+                <input type="email" name="email" class="form-control" id="validationCustomUsername"
                     aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">
                     Please choose a valid Email
@@ -28,7 +28,7 @@
         </div>
         <div class="col-md-3">
             <label class="form-label">Phone Number*</label>
-            <input type="number" class="form-control" placeholder="1234567898" required>
+            <input type="number" name="phone_number" class="form-control" placeholder="1234567898" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -40,24 +40,26 @@
 
         <div class="col-12">
             <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <input type="text" class="form-control" name="address_1" id="inputAddress" placeholder="1234 Main St">
         </div>
         <div class="col-12">
             <label for="inputAddress2" class="form-label">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <input type="text" class="form-control" name="address_2" id="inputAddress2" placeholder="Apartment, studio, or floor">
         </div>
         <div class="col-md-6">
             <label for="validationCustom03" class="form-label">City</label>
-            <input type="text" class="form-control" id="validationCustom03" required>
+            <input type="text" class="form-control" name="city" id="validationCustom03" required>
             <div class="invalid-feedback">
                 Please provide a valid city.
             </div>
         </div>
         <div class="col-md-3">
             <label for="validationCustom04" class="form-label">State</label>
-            <select class="form-select" id="validationCustom04" required>
+            <select class="form-select" name="state" id="validationCustom04" required>
                 <option selected disabled value="">Choose...</option>
-                <option>...</option>
+                <option>Delhi</option>
+                <option>Haryana</option>
+                <option>Madhya Pradesh</option>
             </select>
             <div class="invalid-feedback">
                 Please select a valid state.
@@ -65,7 +67,7 @@
         </div>
         <div class="col-md-3">
             <label for="validationCustom05" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
+            <input type="text" class="form-control" name="zip" id="validationCustom05" required>
             <div class="invalid-feedback">
                 Please provide a valid zip.
             </div>

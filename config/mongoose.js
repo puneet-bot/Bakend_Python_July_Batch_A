@@ -1,5 +1,5 @@
 const    mongoose      =   require('mongoose');
-mongoose.connect(`mongodb://localhost/googleContacts`);
+mongoose.connect(`mongodb://localhost/Google_Contacts`);
 const   db             =   mongoose.connection;
 
 db.on('error',console.error.bind(console,"Error Connecting Database"));

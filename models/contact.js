@@ -26,9 +26,18 @@ const contactSchema = new mongoose.Schema({
     address2:{
         type: String,
     },
+    city:{
+        type: String,
+    },
+    state:{
+        type: String,
+    },
+    zip:{
+        type: String,
+    }
 }, {
     timestamps: true
 });
 
-const Comment=mongoose.model('Comment',commentSchema);
-module.exports=Comment;
+const Contact=mongoose.model('Contact',contactSchema);
+module.exports=Contact;
