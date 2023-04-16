@@ -8,5 +8,8 @@ console.log('here in the router');
 router.get('/',homeController.home);
 
 router.get('/create',createController.create);
+router.post('/create/contact',createController.createContact);
+router.use('/users',require('./user'));
+
 
 module.exports=router;
