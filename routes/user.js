@@ -1,6 +1,7 @@
 const express           = require('express');
 const router            = express.Router();
 const userModel         = require('../models/user');
+const passport          = require('passport');
 
 router.get('/signin',function(req,res){
     res.render('signin',{
@@ -25,15 +26,56 @@ router.post('/create',async function(req,res){
             let createUser= await userModel.create(req.body);
             console.log(createUser);
         }
-        return res.redirect('/users/sign-in');
+        return res.redirect('/users/signin');
     }
     catch(err){
         console.log('error in finding user in signing up'); return}
 })
 
-router.post('/create-session',function(req,res){
+router.post('/create-session',passport.authenticate(
+    'local',
+    {failureRedirect: '/users/signin'},
+),function(req,res){
     console.log(req.body);
     return res.redirect('back');
 })
+
+// router.get('/signout',function(req,res){
+//     req.logout(function(err) {
+//         if (err) { return next(err); }
+//     console.log('success','Signed out Successfully');
+//     // req.session.destroy();
+
+//         res.redirect('/');
+//       });
+// })
+// router.get('/signout', function(req, res) {
+//     req.session.destroy(function(err) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         res.redirect('/');
+//       }
+//     });
+//   });
+router.get('/signout', function(req, res) {
+    console.log(req.session)
+    if (req.session) {
+        console.log('hi')
+      req.session.destroy(function(err) {
+        console.log('hello');
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect('/');
+        }
+      });
+    } else {
+      // No session to destroy, redirect to the home page
+      console.log('bye');
+      res.redirect('/');
+    }
+  });
+  
 
 module.exports=router;
