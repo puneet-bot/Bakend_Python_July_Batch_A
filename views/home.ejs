@@ -74,10 +74,9 @@
               <!-- modal -->
               <li>
                 <!-- Button trigger modal -->
-                <button type="button" class=" dropdown-item" data-toggle="modal" data-target="#exampleModalCenter">
+                <button type="button" class=" dropdown-item" data-toggle="modal" data-target="#example-<%=contact.id%>">
                   Edit
                 </button>
-
               </li>
 
 
@@ -87,116 +86,14 @@
           </div>
         </td>
         </tr>
+<%- include('edit.ejs') %>
+
      <% } %>
       </tbody>
     </table>
     <link rel="stylesheet" href="puneet.css">
   </div>
 
-    <!-- using modal edit form-->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Edit contact</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="/create/contact" method="Post" class="row g-3 needs-validation" novalidate>
-          <div class="col-md-6">
-              <label for="validationCustom01" class="form-label" >First name*</label>
-              <input type="text" class="form-control" name="first_name" id="validationCustom01" value="Mark" required>
-              <div class="valid-feedback">
-                  Looks good!
-              </div>
-          </div>
-          <div class="col-md-6">
-              <label for="validationCustom02" class="form-label">Last name*</label>
-              <input type="text" class="form-control" name="last_name" id="validationCustom02" value="Otto" required>
-              <div class="valid-feedback">
-                  Looks good!
-              </div>
-          </div>
-          <div class="col-md-6">
-              <label for="validationCustomUsername" class="form-label">Email*</label>
-              <div class="input-group has-validation">
-                  <span class="input-group-text" id="inputGroupPrepend">@</span>
-                  <input type="email" name="email" class="form-control" id="validationCustomUsername"
-                      aria-describedby="inputGroupPrepend" required>
-                  <div class="invalid-feedback">
-                      Please choose a valid Email
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-6">
-              <label class="form-label">Phone Number*</label>
-              <input type="number" name="phone_number" class="form-control" placeholder="1234567898" required>
-              <div class="valid-feedback">
-                  Looks good!
-              </div>
-          </div>
-          <div class="col-md-12">
-              <label class="form-label" for="start">Birth Date</label>
-              <input type="date" class="form-control" id="bday" name="bday">
-          </div>
-  
-          <div class="col-12">
-              <label for="inputAddress" class="form-label">Address</label>
-              <input type="text" class="form-control" name="address_1" id="inputAddress" placeholder="1234 Main St">
-          </div>
-          <div class="col-12">
-              <label for="inputAddress2" class="form-label">Address 2</label>
-              <input type="text" class="form-control" name="address_2" id="inputAddress2" placeholder="Apartment, studio, or floor">
-          </div>
-          <div class="col-md-6">
-              <label for="validationCustom03" class="form-label">City</label>
-              <input type="text" class="form-control" name="city" id="validationCustom03" required>
-              <div class="invalid-feedback">
-                  Please provide a valid city.
-              </div>
-          </div>
-          <div class="col-md-3">
-              <label for="validationCustom04" class="form-label">State</label>
-              <select class="form-select" name="state" id="validationCustom04" required>
-                  <option selected disabled value="">Choose...</option>
-                  <option>Delhi</option>
-                  <option>Haryana</option>
-                  <option>Madhya Pradesh</option>
-              </select>
-              <div class="invalid-feedback">
-                  Please select a valid state.
-              </div>
-          </div>
-          <div class="col-md-3">
-              <label for="validationCustom05" class="form-label">Zip</label>
-              <input type="text" class="form-control" name="zip" id="validationCustom05" required>
-              <div class="invalid-feedback">
-                  Please provide a valid zip.
-              </div>
-          </div>
-          <div class="col-12">
-              <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                  <label class="form-check-label" for="invalidCheck">
-                      Agree to terms and conditions
-                  </label>
-                  <div class="invalid-feedback">
-                      You must agree before submitting.
-                  </div>
-              </div>
-          </div>
-      </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-</main>
 
 
 <script src="/js/home.js"></script>
