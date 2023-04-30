@@ -56,7 +56,7 @@
       <tbody>
         
 <% for(contact of contacts) { %>
-        <tr>
+        <tr id="contact-<%=contact.id%>">
           <td scope="row"><%=contact.firstname%></td>
           <td><%=contact.lastname%></td>
           <td><%=contact.email%></td>
@@ -78,9 +78,11 @@
                   Edit
                 </button>
               </li>
-
-
-              <li><a class="dropdown-item" href="#">Delete</a></li>
+              <form action="/func/delete" method="POST" id="new-contact-form">
+              <li>
+                <input type="submit" style="background: transparent;border: none;text-align: center;margin-left:17px" value="Delete"></li>
+                <input type="hidden" name="contact_id" value="<%=contact.id%>">
+              </form>
               <li><a class="dropdown-item" href="#">More</a></li>
             </ul>
           </div>

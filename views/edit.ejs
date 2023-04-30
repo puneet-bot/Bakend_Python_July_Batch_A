@@ -9,7 +9,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="/func/edit" method="Post" class="row g-3 needs-validation" novalidate>
+              <form id="edit-contact-<%=contact.id%>" action="/func/edit" method="Post" class="row g-3 needs-validation" novalidate>
                 <div class="col-md-6">
                     <label for="validationCustom01" class="form-label" >First name*</label>
                     <input type="text" class="form-control" name="first_name" id="validationCustom01" value="<%=contact.firstname%>"  required>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <input type="hidden" name="contact_id" value="<%=contact._id%>">
-              <button type="submit" class="btn btn-primary">Save changes</button>
+              <button type="submit" id="contact-<%=contact._id%>" onclick="ajaxCode(this)" class="btn btn-primary">Save changes</button>
 
             </form>
             </div>
@@ -105,3 +105,6 @@
         </div>
       </div>
       </main>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="/js/editAjax.js"></script>
