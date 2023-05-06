@@ -53,10 +53,10 @@
           <th scope="col">Details</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="contact-body">
         
 <% for(contact of contacts) { %>
-        <tr id="contact-<%=contact.id%>">
+        <tr id="google-contact-<%=contact.id%>">
           <td scope="row"><%=contact.firstname%></td>
           <td><%=contact.lastname%></td>
           <td><%=contact.email%></td>
