@@ -22,5 +22,5 @@ module.exports.createContact=async (req,res)=>{
     });
     contact.save();
     console.log(contact);
-    return res.redirect('back');
+    return res.redirect('/');
 }
