@@ -3,7 +3,9 @@ const router            = express.Router();
 const userModel         = require('../models/user');
 const confirmationModel = require('../models/confirmation');
 const crypto            = require('crypto');
-const queue             = require('../config/kue');
+const commentsMailer = require('../mailers/recovery_mailer');
+const queue = require('../config/kue');
+const commentEmailWorker = require('../workers/recovery-email');
 
 router.get('/forgot',function(req,res){
     res.render('validate_email',{
