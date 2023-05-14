@@ -57,7 +57,7 @@
         
 <% for(contact of contacts) { %>
         <tr id="google-contact-<%=contact.id%>">
-          <td scope="row"><%=contact.firstname%></td>
+          <td scope="row"><img src="<%=contact.image%>" height="30" width="30"><%=contact.firstname%></td>
           <td><%=contact.lastname%></td>
           <td><%=contact.email%></td>
           <td><%=contact.phoneNumber %></td>
