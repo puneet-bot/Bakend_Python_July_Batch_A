@@ -37,4 +37,24 @@ router.post('/check',async function(req,res){
     }
 })
 
+router.get('/recover',async function(req,res){
+   await confirmationModel.findOne({accessToken:req.query.access_token})
+   //tdo- add a check here
+    res.render('reset',{title:"reset",token:req.query.access_token});
+});
+
+router.post('/update',async function(req,res){
+    if(req.body.password!=req.body.confirmPassword){
+        res.redirect('/reset');
+    }
+    let token=await confirmationModel.findOne({accessToken:req.body.token})
+        token.isValid=false;
+        token.save();
+       let user= await  userModel.findOne({email:token.email});
+            user.password=req.body.password;
+            user.save();
+            res.redirect('/users/signin');
+    
+});
+
 module.exports=router;

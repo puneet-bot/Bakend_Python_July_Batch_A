@@ -37,7 +37,7 @@ router.post('/create-session',passport.authenticate(
     {failureRedirect: '/users/signin'},
 ),function(req,res){
     console.log(req.body);
-    return res.redirect('back');
+    return res.redirect('/');
 })
 
 // router.get('/signout',function(req,res){
@@ -59,23 +59,20 @@ router.post('/create-session',passport.authenticate(
 //     });
 //   });
 router.get('/signout', function(req, res) {
-    console.log(req.session)
-    if (req.session) {
-        console.log('hi')
+  console.log('logging out');
+  req.logout(function(err) {
+      if (err) {
+          return next(err);
+      }
       req.session.destroy(function(err) {
-        console.log('hello');
-        if (err) {
-          console.log(err);
-        } else {
+          if (err) {
+              return next(err);
+          }
+          res.clearCookie('Google_Contacts'); // use the name of the session cookie here
           res.redirect('/');
-        }
       });
-    } else {
-      // No session to destroy, redirect to the home page
-      console.log('bye');
-      res.redirect('/');
-    }
   });
+    });
   
 
 module.exports=router;
