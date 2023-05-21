@@ -12,7 +12,8 @@ router.get('/create',createController.create);
 router.post('/create/contact',createController.createContact);
 router.use('/users',require('./user'));
 router.get('/profile', userController.profile);
-router.use('/func',require('./func'))
+router.use('/func',require('./func'));
+router.use('/reset',require('./reset'));
 
 
 module.exports=router;

@@ -1,0 +1,8 @@
+<h2>Rest Your Password Here</h2>
+
+<form method="post" action="/reset/update">
+    <input type="password" name="password" placeholder="Enter New Password">
+    <input type="password" name="confirmPassword" placeholder="Confirm New Password">
+    <input type="hidden" name="token"value="<%=token%>">
+    <input type="submit" name="submit" value="submit">
+</form>

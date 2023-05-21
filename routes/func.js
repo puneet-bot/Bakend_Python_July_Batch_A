@@ -44,6 +44,15 @@ router.post('/delete',async function(req,res){
     catch(err){
         console.log(err);
     }
+});
+
+router.get('/details/:id',async function(req,res){
+    let contact=await contactModel.findById(req.params.id);
+    console.log(contact);
+    res.render("details",{
+        title:"details",
+        contact
+    })
 })
 
 module.exports=router;

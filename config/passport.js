@@ -8,7 +8,7 @@ const User = require('../models/user');
 // authentication using passport
 passport.use(new LocalStrategy({
         usernameField: 'email',
-        // passReqToCallback:true
+        passReqToCallback:true
     },
     async function(req,email, password, done){
         // find a user and establish the identity
@@ -67,7 +67,7 @@ passport.checkAuthentication = function(req,res,next){
     if(req.isAuthenticated()){
         return next();
     }
-    return res.redirect('/users/sign-in');
+    return res.redirect('/users/signin');
 }
 
 passport.setAuthenticatedUser = function(req,res,next){

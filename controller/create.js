@@ -7,7 +7,7 @@ module.exports.create=(request,response)=>{
 }
 
 module.exports.createContact=async (req,res)=>{
-    console.log(req.body);
+    contactModel.uploadedAvatar(req,res,async function(err){
     let contact = await  contactModel.create({
         firstname:req.body.first_name,
         lastname:req.body.last_name,
@@ -18,9 +18,12 @@ module.exports.createContact=async (req,res)=>{
         address2:req.body.address_2,
         city:req.body.city,
         state:req.body.state,
-        zip:req.body.zip
+        zip:req.body.zip,
+        image:(req.file)?contactModel.avatarPath+'/'+req.file.filename:req.body.image_link,
     });
     contact.save();
     console.log(contact);
+    })
+
     return res.redirect('/');
 }

@@ -1,2 +1,3 @@
 node_modules
-hello,
+dump.rdb
+config/secret.js
