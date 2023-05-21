@@ -39,7 +39,9 @@ router.post('/check',async function(req,res){
 
 router.get('/recover',async function(req,res){
    await confirmationModel.findOne({accessToken:req.query.access_token})
-   //tdo- add a check here
+   //todo- add a check here
+           // 1. you have to find the confirmation schema from the access token  {....}
+        // 2. 
     res.render('reset',{title:"reset",token:req.query.access_token});
 });
 
