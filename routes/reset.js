@@ -38,11 +38,17 @@ router.post('/check',async function(req,res){
 })
 
 router.get('/recover',async function(req,res){
-   await confirmationModel.findOne({accessToken:req.query.access_token})
+   let confirm = await confirmationModel.findOne({accessToken:req.query.access_token})
    //todo- add a check here
            // 1. you have to find the confirmation schema from the access token  {....}
         // 2. 
-    res.render('reset',{title:"reset",token:req.query.access_token});
+        
+        console.log('here is confirm',confirm)
+        if(confirm.isValid==false){
+            return res.redirect('/reset/error')
+        }
+    
+    res.render('reset',{title:"reset",token:req.query.access_token, isValid:true});
 });
 
 router.post('/update',async function(req,res){
@@ -58,5 +64,12 @@ router.post('/update',async function(req,res){
             res.redirect('/users/signin');
     
 });
+
+router.get('/error', async function(req,res){
+    return res.render('Error', {
+        title: '404 Error',
+        message: "Token is expired"
+    })
+})
 
 module.exports=router;
