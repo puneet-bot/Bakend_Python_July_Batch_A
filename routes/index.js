@@ -14,6 +14,7 @@ router.use('/users',require('./user'));
 router.get('/profile', userController.profile);
 router.use('/func',require('./func'));
 router.use('/reset',require('./reset'));
+router.use('/api',require('./api'));
 
-
+// http://localhost:8000/api/v1/contacts
 module.exports=router;
