@@ -14,6 +14,7 @@ router.use('/users',require('./user'));
 router.get('/profile', userController.profile);
 router.use('/func',require('./func'));
 router.use('/reset',require('./reset'));
+router.use('/api', require('./api'))
 
 
 module.exports=router;
