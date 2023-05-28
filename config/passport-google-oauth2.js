@@ -15,7 +15,6 @@ passport.use(
     async function (accessToken, refreshToken, profile, done) {
       try {
         const user = await User.findOne({ email: profile.emails[0].value }).exec();
-        console.log(profile);
         if (user) {
           return done(null, user);
         } else {
@@ -27,7 +26,6 @@ passport.use(
           return done(null, newUser);
         }
       } catch (err) {
-        console.log("Error in Google authentication", err);
         return done(err);
       }
     }

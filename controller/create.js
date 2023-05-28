@@ -25,7 +25,6 @@ module.exports.createContact=async (req,res)=>{
     });
     contact.save();
     })
-
     return res.redirect('/');
 }catch (err) {
     if (err instanceof mongoose.CastError) {
@@ -44,6 +43,4 @@ module.exports.createContact=async (req,res)=>{
     });
     
   }
-
-
 }
