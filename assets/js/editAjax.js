@@ -26,7 +26,6 @@
 
   // contact-643bf8ec62733c7b2b6f040c
   function ajaxCode(e) {
-    console.log(e.id);
     let contactId = e.id.split("-");
     console.log(contactId[1]);
     let postForm = $(`#edit-${e.id}`);

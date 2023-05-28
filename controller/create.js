@@ -7,7 +7,9 @@ module.exports.create=(request,response)=>{
 }
 
 module.exports.createContact=async (req,res)=>{
+    try{
     contactModel.uploadedAvatar(req,res,async function(err){
+        
     let contact = await  contactModel.create({
         firstname:req.body.first_name,
         lastname:req.body.last_name,
@@ -22,8 +24,26 @@ module.exports.createContact=async (req,res)=>{
         image:(req.file)?contactModel.avatarPath+'/'+req.file.filename:req.body.image_link,
     });
     contact.save();
-    console.log(contact);
     })
 
     return res.redirect('/');
+}catch (err) {
+    if (err instanceof mongoose.CastError) {
+        // 400 Error: Invalid ID format
+        return res.render('error',{ 
+            layout: false,
+            title: "Error",
+            err:400
+        });
+      }
+      // 500 Error: Internal Server Error
+      return res.render('error', {
+        layout: false,
+        title: "Error",
+        err:500
+    });
+    
+  }
+
+
 }

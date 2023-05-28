@@ -13,29 +13,44 @@ module.exports.signUp = async function(req,res){
     })
 }
 
-
-
 module.exports.createUser = async function(req,res){
-    console.log(req.body);
     try {
+        if(req.body==null){
+            return res.render('error',{
+                layout: false,
+                title: "error",
+                err:400
+            })
+        }
         if (req.body.password != req.body.confirm_password){
             return res.redirect('back');
         }
         let user=await userModel.findOne({email: req.body.email});
         if (!user){
             let createUser= await userModel.create(req.body);
-            console.log(createUser);
         }
         return res.redirect('/users/signin');
     }
-    catch(err){
-        console.log('error in finding user in signing up'); 
-        return;
-    }
+    catch (err) {
+        if (err instanceof mongoose.CastError) {
+            // 400 Error: Invalid ID format
+            return res.render('error',{ 
+                layout: false,
+                title: "Error",
+                err:400
+            });
+          }
+          // 500 Error: Internal Server Error
+          return res.render('error', {
+            layout: false,
+            title: "Error",
+            err:500
+        }); 
+      }
 }
 
 module.exports.signOut = async function(req,res){
-    console.log('logging out');
+
                 req.logout(function(err) {
                     if (err) {
                         return next(err);
@@ -51,11 +66,9 @@ module.exports.signOut = async function(req,res){
 }
 
 module.exports.createSession    =   async function(req,res){
-    console.log(req.body);
     return res.redirect('/');
 }
 
 module.exports.googleCallBack= async function(req,res){
-    console.log('success','Signed In Successfully');
     res.redirect('/')
 }

@@ -6,45 +6,75 @@ const queue = require('../config/kue');
 const commentEmailWorker = require('../workers/recovery-email');
 
 module.exports.checkUser=async function(req,res){
-    console.log('Here in checking...',req.body);
+    try{
     let user=await userModel.find({email:req.body.email});
     if(user.length){
-         console.log(user);
          let confirm= await confirmationModel.create({
             email: req.body.email,
             accessToken: crypto.randomBytes(20).toString('hex'),
             isValid: true
         });
-        console.log(confirm);
             let job = queue.create('reset', confirm).save(function (err) {
                 if (err) {
-                    console.log('Error in finding in err', err);
                     return;
                 }
-                console.log('job enqueued', job.id);
                 res.redirect('back');
             });
     }else{
         res.redirect('/users/signup');
     }
+}catch (err) {
+    if (err instanceof mongoose.CastError) {
+        // 400 Error: Invalid ID format
+        return res.render('error',{ 
+            layout: false,
+            title: "Error",
+            err:400
+        });
+      }
+      // 500 Error: Internal Server Error
+      return res.render('error', {
+        layout: false,
+        title: "Error",
+        err:500
+    });
+    
+  }
 }
 
 module.exports.forgotPassword = async function(req,res){
-    console.log("Forgot_PAssword");
         res.render('validate_email',{
             title: "Validate Email"
         });
 }
 
 module.exports.recoverUser= async function(req,res){
+    try{
     await confirmationModel.findOne({accessToken:req.query.access_token})
     //todo- add a check here
             // 1. you have to find the confirmation schema from the access token  {....}
          // 2. 
      res.render('reset',{title:"reset",token:req.query.access_token});
+    }catch (err) {
+        if (err instanceof mongoose.CastError) {
+            // 400 Error: Invalid ID format
+            return res.render('error',{ 
+                layout: false,
+                title: "Error",
+                err:400
+            });
+          }
+          // 500 Error: Internal Server Error
+          return res.render('error', {
+            layout: false,
+            title: "Error",
+            err:500
+        }); 
+      }
  }
 
  module.exports.updateUser= async function(req,res){
+    try{
     if(req.body.password!=req.body.confirmPassword){
         res.redirect('/reset');
     }
@@ -55,5 +85,21 @@ module.exports.recoverUser= async function(req,res){
             user.password=req.body.password;
             user.save();
             res.redirect('/users/signin');
+}catch (err) {
+    if (err instanceof mongoose.CastError) {
+        // 400 Error: Invalid ID format
+        return res.render('error',{ 
+            layout: false,
+            title: "Error",
+            err:400
+        });
+      }
+      // 500 Error: Internal Server Error
+      return res.render('error', {
+        layout: false,
+        title: "Error",
+        err:500
+    });
     
+  }
 }

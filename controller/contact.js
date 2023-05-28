@@ -1,33 +1,59 @@
 const contactModel      = require('../models/contact');
+const mongoose = require('mongoose');
 
 module.exports.deleteContact=async function(req,res){
-    console.log('here in delete',req.body);
     try{
         let deletedContact=await  contactModel.findByIdAndDelete(req.body.contact_id);
-        console.log(deletedContact);
         res.redirect('/');
     }
-    catch(err){
-        console.log(err);
-        return res.status(500).json({
-            error: "Internal Server Error"
-          });
-    }
+    catch (err) {
+        if (err instanceof mongoose.CastError) {
+            // 400 Error: Invalid ID format
+            return res.render('error',{ 
+                layout: false,
+                title: "Error",
+                err:400
+            });
+          }
+          // 500 Error: Internal Server Error
+          return res.render('error', {
+            layout: false,
+            title: "Error",
+            err:500
+        });
+}
 }
 
-module.exports.deleteContactById=async function(req,res){
+module.exports.getContactById=async function(req,res){
     try{
     let contact=await contactModel.findById(req.params.id);
-    console.log(contact);
+    if(contact==null){
+        return res.render('error', {
+            layout: false,
+            title: "Error",
+            err:404
+        });
+    }
     res.render("details",{
         title:"details",
         contact
     })
 }catch (err) {
-    console.log(err);
-    return res.status(500).json({
-      error: "Internal Server Error"
+    if (err instanceof mongoose.CastError) {
+        // 400 Error: Invalid ID format
+        return res.render('error',{ 
+            layout: false,
+            title: "Error",
+            err:400
+        });
+      }
+      // 500 Error: Internal Server Error
+      return res.render('error', {
+        layout: false,
+        title: "Error",
+        err:500
     });
+    
   }
 }
 
@@ -57,9 +83,19 @@ module.exports.editContact = async function(req,res){
             message:"Contact Created!"
         })
     }catch (err) {
-        console.log(err);
-        return res.status(500).json({
-          error: "Internal Server Error"
+        if (err instanceof mongoose.CastError) {
+            // 400 Error: Invalid ID format
+            return res.render('error',{ 
+                layout: false,
+                title: "Error",
+                err:400
+            });
+          }
+          // 500 Error: Internal Server Error
+          return res.render('error', {
+            layout: false,
+            title: "Error",
+            err:500
         });
     }
 }
