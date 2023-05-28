@@ -1,32 +1,5 @@
 {
-  // let createPost = function () {
-  //     let postForm = $('#new-post-form');
-  //     postForm.submit(function (e) {
-  //         //preventing default actions
-  //         e.preventDefault();
-  //         // $.ajax({
-  //         //     type: 'post',
-  //         //     url: '/posts/create',
-  //         //     data: postForm.serialize(),
-  //         //     success: function (data) {
-  //         //         console.log(data);
-  //         //         let newPostData=newPost(data.data.post);
-  //         //         $(' #post-list-container').prepend(newPostData);
-  //         //         //mentioning that this class is under newPostData in jquery...
-  //         //         // console.log('Dhan Nirankar Ji')
-  //         //         deletePost($('.delete-post-button',newPostData));
-  //         //         // addComments();
-  //         //         new ToggleLike($(' .toggle-like-button',newPostData));
-  //         //     }, error: function (error) {
-  //         //         console.log(error.responseText);
-  //         //     }
-  //         // })
-  //     })
-  // }
-
-  // contact-643bf8ec62733c7b2b6f040c
   function ajaxCode(e) {
-    console.log(e.id);
     let contactId = e.id.split("-");
     console.log(contactId[1]);
     let postForm = $(`#edit-${e.id}`);
@@ -34,17 +7,6 @@
     postForm.submit(function (ev) {
       console.log(ev);
       ev.preventDefault();
-      // $.ajax({
-      //   type: "post",
-      //   url: "/func/edit",
-      //   data: postForm.serialize(),
-      //   success: function (data) {
-      //     console.log(data);
-      //   },
-      //   error: function (error) {
-      //         console.log(error.responseText);
-      //       },
-      // });
       $.ajax({
         type: "post",
         url: "/func/edit",
@@ -59,15 +21,6 @@
           } else {
             console.log(`Modal ${modalId} not found.`);
           }
-
-          //   console.log(document.getElementById(`example-${contactId[1]}`).modal("hide"))
-          //   let newPostData = newPost(data.data.post);
-          //   $(" #post-list-container").prepend(newPostData);
-          //   //mentioning that this class is under newPostData in jquery...
-          //   // console.log('Dhan Nirankar Ji')
-          //   deletePost($(".delete-post-button", newPostData));
-          //   // addComments();
-          //   new ToggleLike($(" .toggle-like-button", newPostData));
         },
         error: function (error) {
           console.log(error.responseText);
