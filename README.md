@@ -17,17 +17,17 @@ Teams Page: List of people who have contributed in this project
 
 # Backend: 
     allow users to reset password only once with link
-    MVC 
-    P0: Try-catch add: Amit/Sushil/Srinu: May 28
+    MVC- PR raised 
+    P0: Try-catch add: Amit/Sushil/Srinu: PR Raised
     Authentication checks
     Ask for authentication at every page
     P1: Execute and run ConnectOHub web application on all team members machine: Amit/Sushil 
-    P0: Create some APIs:
-        1. Fetch only 5 records
+    P0: Create some APIs: 
+        1. Fetch only 5 records -PR Raised
         2. Fetch only 100 records
         3. Fetch name
         4. Fetch email
-        5. Fetch birthdate
+        5. Fetch birthdate -PR Raised
     Middlewares
     Flash notifications
     mobile otps
@@ -36,11 +36,11 @@ Teams Page: List of people who have contributed in this project
 
 # UI enhancements
     1. right in navbar
-    2. Set modal width so that it doesn't scrolls
+    2. Set modal width so that it doesn't scrolls-PR Raised
     3. Add button - Improve design  or you can add Pagination
     4. Sorting in Table
     5. AJAX Delete
-    6. Details Page- Design from scratch : Preeti
+    6. Details Page- Design from scratch : (Preeti: 3 June)
     7. Contributors Page
     8. Introduction Profile
 
