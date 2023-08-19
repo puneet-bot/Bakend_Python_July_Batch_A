@@ -1,0 +1,18 @@
+<form action="/reset/check" method="POST">
+<div class="col-md-6">
+  <label for="validationCustomUsername" class="form-label">Email*</label>
+  <div class="input-group has-validation">
+    <span class="input-group-text" id="inputGroupPrepend">@</span>
+    <input
+      type="email"
+      name="email"
+      class="form-control"
+      id="validationCustomUsername"
+      aria-describedby="inputGroupPrepend"
+      required
+    />
+    <div class="invalid-feedback">Please choose a valid Email</div>
+  </div>
+</div>
+<input type="submit" value="Validate Email">
+</form>

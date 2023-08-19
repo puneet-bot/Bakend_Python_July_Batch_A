@@ -1,14 +1,14 @@
-const contactModel = require('../models/contact');
+const contactModel      = require('../models/contact')
 
-module.exports.home = async function (req, res) {
-    try {
-        let contacts = await contactModel.find({});
-        console.log(contacts);
-        return res.render('home', {
-            title: "Home",
-            contacts
-        });
-    } catch (err) {
+module.exports.profile = async function(req, res){
+    try{
+        const contact = await contactModel.findOne({});        
+        return res.render('user_profile', {
+            title: 'User Profile',
+            contact
+        })
+
+    }catch (err) {
         if (err instanceof mongoose.CastError) {
             // 400 Error: Invalid ID format
             return res.render('error',{ 
