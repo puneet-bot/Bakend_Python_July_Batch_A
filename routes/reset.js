@@ -68,7 +68,8 @@ router.post('/update',async function(req,res){
 router.get('/error', async function(req,res){
     return res.render('Error', {
         title: '404 Error',
-        message: "Token is expired"
+        message: "Token is expired",
+        image: "/images/oops-404-error-with-broken-robot-concept-illustration_114360-5529.avif"
     })
 })
 

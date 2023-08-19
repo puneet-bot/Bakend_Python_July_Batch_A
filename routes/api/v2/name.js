@@ -1,13 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const contactModel = require('../../../models/contact');
+const nameController = require('../../../controller/api/v2/name_controller');
 
-router.use('/', async function(req, res){
-    const name = await contactModel.find({},'firstname lastname');
-    res.json(200,{
-        message: "list of name",
-        name
-    })
-})
+router.use('/', nameController.Name);
 
 module.exports = router

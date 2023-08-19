@@ -4,6 +4,7 @@
   "description": "A web Application to display all the contacts",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

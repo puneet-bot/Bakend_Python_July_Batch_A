@@ -1,3 +1,15 @@
-<h1>Contact Information:</h1>
-<br>
-<%= contact %>
+<link rel="stylesheet" href="/css/details.css">
+<body><div id="main">
+    <table id="details">
+        <h2>Contact Information</h2>
+        <!-- 1st row of feilds -->
+        <tr><th>FirstName</th><td><%= contact.firstname %></td></tr>
+        <tr><th>LastName</th><td><%= contact.lastname %></td></tr>
+        <tr><th>Photo</th><td><%= contact.image %></td></tr>
+        <tr><th>Email</th><td><%= contact.email %></td></tr>
+        <tr><th>Phone</th><td><%= contact.phoneNumber %></td></tr>
+        <tr><th>Address</th><td><%= contact.address1,contact.address2 %></td></tr>
+        <tr><th>City</th><td><%= contact.city,contact.state %></td></tr>
+        <tr><th>Created at:</th><td><%= contact.createdAt %></td></tr>
+    </table></div>
+</body>
